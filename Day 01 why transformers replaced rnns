@@ -1,0 +1,21 @@
+# Day 1/30: Why did Transformers replace RNNs and LSTMs?
+
+Starting something new — a 30-day series where I go back to basics on Transformers, and by the end, try to build a tiny LLM from scratch. Mostly so I understand it deeply enough to explain it simply. Let's start at the beginning.
+
+For a long time, RNNs and LSTMs were the default choice for anything sequential — text, speech, time series. They read input one token at a time, carrying a "memory" forward as they went.
+
+Sounds reasonable. But it had real problems.
+
+First, training was painfully sequential. Each step depended on the one before it, so you couldn't really parallelize things. Long sequences meant long training times.
+
+Second, memory faded fast. By the time an LSTM got to word 50 in a sentence, word 1 was basically a distant memory. Long-range context just didn't stick.
+
+Third, scaling didn't help much. Throwing more data or compute at these models gave diminishing returns.
+
+Then in 2017, the "Attention Is All You Need" paper flipped the approach. Instead of reading word by word, why not let the model look at the *entire* sequence at once, and figure out which words matter most to each other — no matter how far apart they are?
+
+That one idea — attention — is the reason GPT, BERT, Claude, and basically every modern LLM work the way they do.
+
+Tomorrow: how raw text actually turns into numbers a model can work with (tokenization).
+
+#Transformers #DeepLearning #AI #LLM
